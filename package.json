@@ -1,0 +1,23 @@
+{
+  "name": "prime_peer_db_01-master",
+  "version": "1.0.0",
+  "description": "In this exercise you'll be creating a MongoDB application to store student assignment information, including the assignment name, the student's identity, their score on the assignment, and the date it was turned in. Only the identity and date completed are required.",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.4.8",
+    "express": "^4.13.3",
+    "grunt": "^0.4.5",
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-uglify": "^0.11.0",
+    "mongoose": "^4.3.5",
+    "node": "0.0.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
