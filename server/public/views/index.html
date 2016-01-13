@@ -9,20 +9,26 @@
 </head>
 <body ng-controller="mainController">
     <h1>Peer Database Assignment</h1>
+    <img src="../views/olXLQ06C.png" alt="primelogo" height="50" width="50">
 
     <div class="entryForm">
-        <p>Student Name: <input type="text" ng-model="studentName"></p>
-        <p>Date: <input type="date" ng-model="date"></p>
-        <p>Assignment #: <input type="number" ng-model="assignmentNumber"></p>
-        <p>Score: <input type="number" ng-model="studentScore"></p>
+        <p>Student Name: <input type="text" ng-model="student_name"></p>
+        <p>Date: <input type="date" ng-model="date_completed"></p>
+        <p>Assignment #: <input type="number" ng-model="assignment_number"></p>
+        <p>Score: <input type="number" ng-model="score"></p>
     </div>
-
 
 
     <button ng-click="addAssignment()">Add Assignment Information</button>
 
-    <ul>
-        <li> </li>
+    <!--From Jeremy: Feel free to make changes to this section if any ideas come to mind.-->
+    <ul ng-repeat="assignment in assignmentsList">
+        <li>
+            {{"Student Name: " + assignment.student_name}}<br>
+            {{"Date: " + assignment.date}}<br>
+            {{"Assignment #: " + assignment.assignment_number}}<br>
+            {{"Score: " + assignment.score}}<br>
+        </li>
     </ul>
 
 </body>

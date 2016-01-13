@@ -25,11 +25,12 @@ router.get('/', function(req, res){
 });
 
 router.post('/newAssignment', function(req, res) {
+
     Assignment.create({
-        student_name: 'Kristy',
-        date_completed: new Date(2016, 0, 12),
-        assignment_number: 1,
-        score: 100
+        student_name: req.body.student_name,
+        date_completed: req.body.date_completed,
+        assignment_number: req.body.assignment_number,
+        score: req.body.score
     }, function(err) {
         if (err) {
             console.log(err);
@@ -39,16 +40,24 @@ router.post('/newAssignment', function(req, res) {
     });
 });
 
-router.get('/assignment/:name', function(req, res){
-    Assignment.findOne({student_name: req.params.name}).exec(function(err, results){
-        if (err) {
-            console.log(err);
-        } else {
-            console.log(results);
-            res.sendStatus(200);
-        }
-    });
+router.get('/assignment/:id?', function(req, res){
+    if(req.params.id){
+        Assignment.findOne({_id: req.params.id}).exec(function(err, results){
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(results);
+                res.sendStatus(200);
+            }
+        });
+    } else {
+        Assignment.find({}).exec(function(err, assignments){
+            if(err) throw new Error(err);
+            res.send(JSON.stringify(assignments));
+        })
+    }
 });
 
 
 module.exports = router;
+
